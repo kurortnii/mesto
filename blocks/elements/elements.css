@@ -1,0 +1,10 @@
+.elements {
+  max-width: 882px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 282px);
+  gap: 20px 18px;
+  list-style-type: none;
+  padding: 0;
+  justify-content: center;
+}

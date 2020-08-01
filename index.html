@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto Russia</title>
+  <link rel="stylesheet" href="./pages/index.css">
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <img src="./images/logo-header.svg" alt="Логотип Mesto Russia" class="header__logo">
+      <div class="header__line"></div>
+    </header>
+    <main class="content">
+      <section class="profile">
+        <div class="profile__container">
+          <img src="./images/avatar.jpg" alt="Аватар" class="profile__image">
+          <div class="profile__info-main">
+            <div class="profile__info">
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <button class="profile__button-info"></button>
+            </div>
+            <p class="profile__text">Исследователь океана</p>
+          </div>
+        </div> 
+        <button class="profile__button-download"></button>
+      </section>
+      <section class="cards">
+        <ul class="elements">
+          <li class="element">
+            <img src="./images/marina-bunto-53-KGC9lkao-unsplash.jpg" alt="Тверь" class="element__image">
+            <div class="element__container">
+              <h2 class="element__text">Тверь</h2>
+              <button class="element__button-like"><img src="./images/heart.svg" alt="Иконка лайка"></button>
+            </div>
+          </li>
+          <li class="element">
+            <img src="./images/sasha-yudaev-RJuFZ0FvHoQ-unsplash.jpg" alt="Метро Савеловская" class="element__image">
+            <div class="element__container">
+              <h2 class="element__text">Метро Савёловская</h2>
+              <button class="element__button-like"><img src="./images/heart.svg" alt="Иконка лайка"></button>
+            </div>
+          </li>
+          <li class="element">
+            <img src="./images/ilia-schelkanov-ctN79wemAI4-unsplash.jpg" alt="Исакиевский Собор" class="element__image">
+            <div class="element__container">
+              <h2 class="element__text">Исакиевский Собор</h2>
+              <button class="element__button-like"><img src="./images/heart.svg" alt="Иконка лайка"></button>
+            </div>
+          </li>
+          <li class="element">
+            <img src="./images/ilia-schelkanov-ctN79wemAI4-unsplash.jpg" alt="Исакиевский Собор" class="element__image">
+            <div class="element__container">
+              <h2 class="element__text">Исакиевский Собор</h2>
+              <button class="element__button-like"><img src="./images/heart.svg" alt="Иконка лайка"></button>
+            </div>
+          </li>
+          <li class="element">
+            <img src="./images/marina-bunto-53-KGC9lkao-unsplash.jpg " alt="Тверь" class="element__image">
+            <div class="element__container">
+              <h2 class="element__text">Тверь</h2>
+              <button class="element__button-like"><img src="./images/heart.svg" alt="Иконка лайка"></button>
+            </div>
+          </li>
+          <li class="element">
+            <img src="./images/sasha-yudaev-RJuFZ0FvHoQ-unsplash.jpg" alt="Метро Савёловская" class="element__image">
+            <div class="element__container">
+              <h2 class="element__text">Метро Савёловская</h2>
+              <button class="element__button-like"><img src="./images/heart.svg" alt="Иконка лайка"></button>
+            </div>  
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2020. Mesto Russia</p>
+    </footer>
+    <div class="popup">
+      <div class="popup__container">
+        <form class="popup__form">
+          <h3 class="popup__heading">Редактировать профиль</h3>
+          <div class="popup__fields">
+            <input type="text" class="popup__field popup__field_name" placeholder="Жак-Ив Кусто">
+            <input type="text" class="popup__field popup__field_text" placeholder="Исследователь океана">
+            <button class="popup__button-submit"><p class="popup__button-text">Сохранить</p></button>
+          </div>
+        </form>
+        <button class="popup__button-close"><img src="./images/close-icon.svg" alt="Иконка закрытия попапа"></button>
+      </div>
+    </div>
+  </div>
+  <script src="./script/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+.profile__info-main {
+  margin-top: 18px;
+  margin-left: 30px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 425px) {
+  .profile__info-main {
+    margin: 0;
+    margin-top: 18px;
+  }  
+}

@@ -1,0 +1,13 @@
+.element__button-like {
+  width: 21px;
+  height: 18px;
+  align-self: center;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.element__button-like:active {
+  outline: none;
+}

@@ -1,0 +1,12 @@
+.popup__fields {
+  display: flex;
+  flex-direction: column;
+  margin-top: 54px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 500px) {
+  .popup__fields {
+    width: 275px;
+    margin-top: 29px;
+  }
+}
