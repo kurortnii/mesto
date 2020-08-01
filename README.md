@@ -9,4 +9,4 @@
 * Использование методов querySelector, addEventListener и т.д.
 * Резиновая и адаптивная верстка
 
-Ссылка на проект: https://kurortnii.github.io/mesto/
+Ссылка на проект: https://kurortnii.github.io/mesto/index.html
