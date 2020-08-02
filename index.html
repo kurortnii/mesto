@@ -5,13 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto Russia</title>
   <link rel="stylesheet" href="./pages/index.css">
-  <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
   <div class="page">
     <header class="header">
       <img src="./images/logo-header.svg" alt="Логотип Mesto Russia" class="header__logo">
-      <div class="header__line"></div>
     </header>
     <main class="content">
       <section class="profile">
@@ -79,18 +77,18 @@
     </footer>
     <div class="popup">
       <div class="popup__container">
-        <form class="popup__form">
+        <form class="popup__form" name="form">
           <h3 class="popup__heading">Редактировать профиль</h3>
           <div class="popup__fields">
-            <input type="text" class="popup__field popup__field_name" placeholder="Жак-Ив Кусто">
-            <input type="text" class="popup__field popup__field_text" placeholder="Исследователь океана">
-            <button class="popup__button-submit"><p class="popup__button-text">Сохранить</p></button>
+            <input type="text" class="popup__field popup__field_name" name="name" placeholder="Введите имя" required>
+            <input type="text" class="popup__field popup__field_text" name="text" placeholder="Введите текст" required>
+            <button class="popup__button-submit">Сохранить</button>
           </div>
         </form>
         <button class="popup__button-close"><img src="./images/close-icon.svg" alt="Иконка закрытия попапа"></button>
       </div>
     </div>
   </div>
-  <script src="./script/script.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 </html>
