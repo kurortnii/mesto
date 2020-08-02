@@ -15,6 +15,7 @@
   .profile__text {
     font-size: 14px;
     line-height: 1.214;
+    margin: auto;
     margin-top: 14px;
     text-align: center;
     width: 215px;
@@ -23,6 +24,8 @@
 
 @media screen and (min-width: 426px) and (max-width: 650px) {
   .profile__text {
+    max-width: 282px;
+    margin: auto;
     margin-top: 14px;
     text-align: center;
   }  
