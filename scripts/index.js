@@ -9,8 +9,10 @@ let profileText = document.querySelector('.profile__text');
 
 const popupToggle = function() {
 
-  nameInput.value = profileName.textContent;
-  textInput.value = profileText.textContent;
+  if(popup.classList.contains('popup_opened') === false) {
+    nameInput.value = profileName.textContent;
+    textInput.value = profileText.textContent;
+  }
   
   popup.classList.toggle('popup_opened');
 }
@@ -21,7 +23,7 @@ function formSubmitHandler(event) {
   profileName.textContent = nameInput.value;
   profileText.textContent = textInput.value;
 
-  popup.classList.toggle('popup_opened');
+  popupToggle();
 }
 
 popupOpenButton.addEventListener('click', popupToggle);
