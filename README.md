@@ -8,5 +8,6 @@
 
 * Использование методов querySelector, addEventListener и т.д.
 * Резиновая и адаптивная верстка
+* Работа с DOM-деревом c помощью различных методов в JS
 
 Ссылка на проект: https://kurortnii.github.io/mesto/index.html

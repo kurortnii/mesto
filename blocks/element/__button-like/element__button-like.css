@@ -1,4 +1,6 @@
 .element__button-like {
+  background: url(../../../images/heart.svg) center no-repeat;
+  background-size: 100%;
   width: 21px;
   height: 18px;
   align-self: center;
@@ -6,6 +8,7 @@
   border: 0;
   background-color: transparent;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .element__button-like:hover {

@@ -27,55 +27,23 @@
       </section>
       <section class="cards">
         <ul class="elements">
-          <li class="element">
-            <img src="./images/marina-bunto-53-KGC9lkao-unsplash.jpg" alt="Тверь" class="element__image">
-            <div class="element__container">
-              <h2 class="element__text">Тверь</h2>
-              <button class="element__button-like"><img src="./images/heart.svg" alt="Иконка лайка"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img src="./images/sasha-yudaev-RJuFZ0FvHoQ-unsplash.jpg" alt="Метро Савеловская" class="element__image">
-            <div class="element__container">
-              <h2 class="element__text">Метро Савёловская</h2>
-              <button class="element__button-like"><img src="./images/heart.svg" alt="Иконка лайка"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img src="./images/ilia-schelkanov-ctN79wemAI4-unsplash.jpg" alt="Исакиевский Собор" class="element__image">
-            <div class="element__container">
-              <h2 class="element__text">Исакиевский Собор</h2>
-              <button class="element__button-like"><img src="./images/heart.svg" alt="Иконка лайка"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img src="./images/ilia-schelkanov-ctN79wemAI4-unsplash.jpg" alt="Исакиевский Собор" class="element__image">
-            <div class="element__container">
-              <h2 class="element__text">Исакиевский Собор</h2>
-              <button class="element__button-like"><img src="./images/heart.svg" alt="Иконка лайка"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img src="./images/marina-bunto-53-KGC9lkao-unsplash.jpg " alt="Тверь" class="element__image">
-            <div class="element__container">
-              <h2 class="element__text">Тверь</h2>
-              <button class="element__button-like"><img src="./images/heart.svg" alt="Иконка лайка"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img src="./images/sasha-yudaev-RJuFZ0FvHoQ-unsplash.jpg" alt="Метро Савёловская" class="element__image">
-            <div class="element__container">
-              <h2 class="element__text">Метро Савёловская</h2>
-              <button class="element__button-like"><img src="./images/heart.svg" alt="Иконка лайка"></button>
-            </div>  
-          </li>
+          <template id="elementTemplate">
+            <li class="element">
+              <img src="./images/delete-icon.svg" alt="Иконка корзины" class="element__button-delete">
+              <img src="" alt="" class="element__image">
+              <div class="element__container">
+                <h2 class="element__text"></h2>
+                <button class="element__button-like"></button>
+              </div>
+            </li>
+          </template>
         </ul>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2020. Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup_type_name">
       <div class="popup__container">
         <form class="popup__form" name="form">
           <h3 class="popup__heading">Редактировать профиль</h3>
@@ -85,6 +53,26 @@
             <button class="popup__button-submit">Сохранить</button>
           </div>
         </form>
+        <button class="popup__button-close"><img src="./images/close-icon.svg" alt="Иконка закрытия попапа"></button>
+      </div>
+    </div>
+    <div class="popup popup_type_add-card">
+      <div class="popup__container">
+        <form class="popup__form" name="form">
+          <h3 class="popup__heading">Новое место</h3>
+          <div class="popup__fields">
+            <input type="text" class="popup__field popup__field_title" name="name" placeholder="Название" required>
+            <input type="text" class="popup__field popup__field_url" name="link" placeholder="Ссылка на картинку" required>
+            <button class="popup__button-submit">Создать</button>
+          </div>
+        </form>
+        <button class="popup__button-close"><img src="./images/close-icon.svg" alt="Иконка закрытия попапа"></button>
+      </div>
+    </div>
+    <div class="popup popup_type_image">
+      <div class="popup__image-container">
+        <img src="" alt="" class="popup__image">
+        <p class="popup__image-title"></p>
         <button class="popup__button-close"><img src="./images/close-icon.svg" alt="Иконка закрытия попапа"></button>
       </div>
     </div>
