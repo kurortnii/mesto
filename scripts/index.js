@@ -29,15 +29,13 @@ const initialCards = [
 
 //объявляем переменные для попапа редактирования профиля
 
-const popup = document.querySelector('.popup');
+const popupName = document.querySelector('.popup_type_name');
 const popupOpenButton = document.querySelector('.profile__button-info');
-const popupCloseButton = popup.querySelector('.popup__button-close');
-const formElement = popup.querySelector('.popup__form');
-const nameInput = formElement.querySelector('.popup__field_name');
-const textInput = formElement.querySelector('.popup__field_text');
+const formElement = popupName.querySelector('.popup__form');
+const nameInput = popupName.querySelector('.popup__field_name');
+const textInput = popupName.querySelector('.popup__field_text');
 const profileName = document.querySelector('.profile__name');
 const profileText = document.querySelector('.profile__text');
-const popupName = document.querySelector('.popup_type_name');
 
 //объвляем переменную, необходимую для рендера карточки
 
@@ -50,11 +48,9 @@ const popupAddButton = document.querySelector('.profile__button-download');
 const formElementAdd = popupAdd.querySelector('.popup__form');
 const nameCardInput = popupAdd.querySelector('.popup__field_title');
 const urlCardInput = popupAdd.querySelector('.popup__field_url');
-const popupAddCloseButton = popupAdd.querySelector('.popup__button-close');
 
 //объявляем переменные для попапа увеличения картинки
 
-const elementImage = document.querySelectorAll('.element__image');
 const popupWrapImage = document.querySelector('.popup_type_image');
 const popupImage = popupWrapImage.querySelector('.popup__image');
 const popupImageTitle = popupWrapImage.querySelector('.popup__image-title');
@@ -66,11 +62,11 @@ const popupCloseButtonAll = document.querySelectorAll('.popup__button-close');
 
 //описываем функцию открытия попапа
 
-const popupOpen = popup => popup.classList.add('popup_opened'); 
+const openPopup = popup => popup.classList.add('popup_opened'); 
 
 //описываем функцию закрытия попапа
 
-const popupClose = () => document.querySelector('.popup_opened').classList.remove('popup_opened');
+const closePopup = () => document.querySelector('.popup_opened').classList.remove('popup_opened');
 
 //описываем функцию закрытия попапа по оверлею 
 
@@ -79,7 +75,7 @@ const popupCloseOverlay = event => {
 
   return; 
   
-  popupClose(event.target);
+  closePopup(event.target);
 }
 
 //описываем обработчик формы редактирования профиля
@@ -90,25 +86,27 @@ const formSubmitHandler = event => {
   profileName.textContent = nameInput.value;
   profileText.textContent = textInput.value;
 
-  popupClose();
+  closePopup();
 }
 
 //описывыем обработчик формы добавления и сохранения карточки в начало контейнера
 
-const formAddCardHandler = event => {
+const formAddCardHandler = event => { 
+  сonsole.log('sdfdg');
   event.preventDefault()
+ 
+  const nameCard = nameCardInput.value; 
+  const urlCard =  urlCardInput.value; 
+ 
+  createCard(nameCard, urlCard); //????
+  closePopup(); 
+  formElementAdd.reset(); 
+} 
 
-  const nameCard = nameCardInput.value;
-  const urlCard =  urlCardInput.value;
-
-  addItemToContainer(nameCard, urlCard);
-  popupClose();
-  formElementAdd.reset();
-}
 
 //отрисовываем карточку
 
-const addItemToContainer = (nameCard, urlCard) => {
+const createCard = (nameCard, urlCard) => {
   const cardElement = document.querySelector('#elementTemplate').content.cloneNode(true);
   const likeButton = cardElement.querySelector('.element__button-like');
   const imageElement = cardElement.querySelector('.element__image');
@@ -118,12 +116,10 @@ const addItemToContainer = (nameCard, urlCard) => {
   imageElement.alt = nameCard;
   cardElement.querySelector('.element__text').textContent = nameCard;
 
-  elementContainer.prepend(cardElement);
-
   //добавим слушатели на картинки (для ее открытия в полный размер) и кнопки (для удаления карточки и лайка)
 
   imageElement.addEventListener('click', function() {
-    popupOpen(popupWrapImage);
+    openPopup(popupWrapImage);
     popupImage.src = imageElement.src;
     popupImageTitle.textContent = imageElement.alt;
   });
@@ -135,6 +131,12 @@ const addItemToContainer = (nameCard, urlCard) => {
   likeButton.addEventListener('click', function() {
     likeButton.classList.toggle('element__button-like_active');
   });
+
+  return cardElement;
+}
+
+const addCardToContainer = (elementContainer, cardElement) => {
+  elementContainer.prepend(cardElement);
 }
 
 //пишем обработчики событий для:
@@ -144,14 +146,14 @@ const addItemToContainer = (nameCard, urlCard) => {
 //закрытию попапов и с помощью метода forEach навесим обработчик на все кнопки
 
 popupOpenButton.addEventListener('click', function() {
-  popupOpen(popupName);
+  openPopup(popupName);
 
   nameInput.value = profileName.textContent;
   textInput.value = profileText.textContent;
 });
 
 popupAddButton.addEventListener('click', function() {
-  popupOpen(popupAdd);
+  openPopup(popupAdd);
 });
 
 popupName.addEventListener('click', popupCloseOverlay);
@@ -159,7 +161,7 @@ popupAdd.addEventListener('click', popupCloseOverlay);
 popupWrapImage.addEventListener('click', popupCloseOverlay);
 
 popupCloseButtonAll.forEach(button => {
-  button.addEventListener('click', popupClose)
+  button.addEventListener('click', closePopup)
 });
 
 //объявим обработчики событий
@@ -169,6 +171,12 @@ formElementAdd.addEventListener('submit', formAddCardHandler); //для окна
 
 //рендерим изначальные карточки из входного массива
 
-for (i = 0; i < initialCards.length; i++) {
-  addItemToContainer(initialCards[i].name, initialCards[i].link);
-}
+//for (let i = 0; i < initialCards.length; i++) {
+  //addItemToContainer(initialCards[i].name, initialCards[i].link);
+//}
+
+initialCards.forEach(card => {
+  const cardElement = createCard(card.name, card.link);
+
+  addCardToContainer(elementContainer, cardElement);
+});
