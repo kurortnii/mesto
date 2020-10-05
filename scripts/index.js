@@ -91,18 +91,21 @@ const formSubmitHandler = event => {
 
 //описывыем обработчик формы добавления и сохранения карточки в начало контейнера
 
-const formAddCardHandler = event => { 
-  сonsole.log('sdfdg');
+const formAddCardHandler = event => {
   event.preventDefault()
  
   const nameCard = nameCardInput.value; 
-  const urlCard =  urlCardInput.value; 
- 
-  createCard(nameCard, urlCard); //????
+  const urlCard =  urlCardInput.value;
+
+  //получили карточку 
+  const elementItem = createCard(nameCard, urlCard);
+  
+  //передали ее в контейнер
+  addCardToContainer(elementContainer, elementItem);
+  
   closePopup(); 
   formElementAdd.reset(); 
-} 
-
+}
 
 //отрисовываем карточку
 
@@ -134,6 +137,8 @@ const createCard = (nameCard, urlCard) => {
 
   return cardElement;
 }
+
+//описываем функцию для добавления карточки в контейнер
 
 const addCardToContainer = (elementContainer, cardElement) => {
   elementContainer.prepend(cardElement);
@@ -170,10 +175,6 @@ formElement.addEventListener('submit', formSubmitHandler); //для окна р�
 formElementAdd.addEventListener('submit', formAddCardHandler); //для окна добавления карточки
 
 //рендерим изначальные карточки из входного массива
-
-//for (let i = 0; i < initialCards.length; i++) {
-  //addItemToContainer(initialCards[i].name, initialCards[i].link);
-//}
 
 initialCards.forEach(card => {
   const cardElement = createCard(card.name, card.link);
