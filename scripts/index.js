@@ -29,11 +29,11 @@ const initialCards = [
 
 //объявляем переменные для попапа редактирования профиля
 
-const popupName = document.querySelector('.popup_type_name');
+const popupProfile = document.querySelector('.popup_type_profile');
 const popupOpenButton = document.querySelector('.profile__button-info');
-const formElement = popupName.querySelector('.popup__form');
-const nameInput = popupName.querySelector('.popup__field_name');
-const textInput = popupName.querySelector('.popup__field_text');
+const formElement = popupProfile.querySelector('.popup__form');
+const nameInput = popupProfile.querySelector('.popup__field_name');
+const textInput = popupProfile.querySelector('.popup__field_text');
 const profileName = document.querySelector('.profile__name');
 const profileText = document.querySelector('.profile__text');
 
@@ -70,7 +70,7 @@ const closePopup = () => document.querySelector('.popup_opened').classList.remov
 
 //описываем функцию закрытия попапа по оверлею 
 
-const popupCloseOverlay = event => {
+const closePopupOverlay = event => {
   if (event.target !== event.currentTarget)
 
   return; 
@@ -80,7 +80,7 @@ const popupCloseOverlay = event => {
 
 //описываем обработчик формы редактирования профиля
 
-const formSubmitHandler = event => {
+const handleFormSubmit = event => {
   event.preventDefault()
 
   profileName.textContent = nameInput.value;
@@ -91,7 +91,7 @@ const formSubmitHandler = event => {
 
 //описывыем обработчик формы добавления и сохранения карточки в начало контейнера
 
-const formAddCardHandler = event => {
+const handleAddCardFormSubmit = event => {
   event.preventDefault()
  
   const nameCard = nameCardInput.value; 
@@ -102,7 +102,7 @@ const formAddCardHandler = event => {
   
   //передали ее в контейнер
   addCardToContainer(elementContainer, elementItem);
-  
+
   closePopup(); 
   formElementAdd.reset(); 
 }
@@ -151,7 +151,7 @@ const addCardToContainer = (elementContainer, cardElement) => {
 //закрытию попапов и с помощью метода forEach навесим обработчик на все кнопки
 
 popupOpenButton.addEventListener('click', function() {
-  openPopup(popupName);
+  openPopup(popupProfile);
 
   nameInput.value = profileName.textContent;
   textInput.value = profileText.textContent;
@@ -161,9 +161,9 @@ popupAddButton.addEventListener('click', function() {
   openPopup(popupAdd);
 });
 
-popupName.addEventListener('click', popupCloseOverlay);
-popupAdd.addEventListener('click', popupCloseOverlay);
-popupWrapImage.addEventListener('click', popupCloseOverlay);
+popupProfile.addEventListener('click', closePopupOverlay);
+popupAdd.addEventListener('click', closePopupOverlay);
+popupWrapImage.addEventListener('click', closePopupOverlay);
 
 popupCloseButtonAll.forEach(button => {
   button.addEventListener('click', closePopup)
@@ -171,8 +171,8 @@ popupCloseButtonAll.forEach(button => {
 
 //объявим обработчики событий
 
-formElement.addEventListener('submit', formSubmitHandler); //для окна редактирования профиля
-formElementAdd.addEventListener('submit', formAddCardHandler); //для окна добавления карточки
+formElement.addEventListener('submit', handleFormSubmit); //для окна редактирования профиля
+formElementAdd.addEventListener('submit', handleAddCardFormSubmit); //для окна добавления карточки
 
 //рендерим изначальные карточки из входного массива
 
