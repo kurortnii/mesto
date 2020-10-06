@@ -60,13 +60,23 @@ const popupImageTitle = popupWrapImage.querySelector('.popup__image-title');
 const popupCloseButtonAll = document.querySelectorAll('.popup__button-close');
 
 
-//описываем функцию открытия попапа
-
-const openPopup = popup => popup.classList.add('popup_opened'); 
+const openPopup = popup => {
+  popup.classList.add('popup_opened'); 
+  popup.parentNode.addEventListener('keydown', closePopupByEscKey);
+}
 
 //описываем функцию закрытия попапа
 
 const closePopup = () => document.querySelector('.popup_opened').classList.remove('popup_opened');
+
+//описываем функцию закрытия попапа по клавише Esc
+
+const closePopupByEscKey = evt => {
+  if (evt.keyCode === 27) {
+    document.querySelector('.popup_opened').parentNode.removeEventListener('keydown', closePopupByEscKey);
+    closePopup();
+  }
+}
 
 //описываем функцию закрытия попапа по оверлею 
 

@@ -22,6 +22,7 @@
 
 .profile__button-info:hover {
   opacity: 0.6;
+  cursor: pointer;
 }
 
 .profile__button-info:active {

@@ -21,6 +21,7 @@
 
 .profile__button-download:hover {
   opacity: 0.6;
+  cursor: pointer;
 }
 
 .profile__button-download:active {
