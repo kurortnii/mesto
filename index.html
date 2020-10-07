@@ -27,22 +27,24 @@
       </section>
       <section class="cards">
         <ul class="elements">
-          <template id="elementTemplate">
-            <li class="element">
-              <img src="./images/delete-icon.svg" alt="Иконка корзины" class="element__button-delete">
-              <img src="" alt="" class="element__image">
-              <div class="element__container">
-                <h2 class="element__text"></h2>
-                <button class="element__button-like"></button>
-              </div>
-            </li>
-          </template>
         </ul>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2020. Mesto Russia</p>
     </footer>
+    <template id="elementTemplate">
+      <li class="element">
+        <div class="element__image-container">
+          <img src="./images/delete-icon.svg" alt="Иконка корзины" class="element__button-delete">
+          <img src="" alt="" class="element__image">
+        </div>
+        <div class="element__container">
+          <h2 class="element__text"></h2>
+          <button class="element__button-like"></button>
+        </div>
+      </li>
+    </template>
     <div class="popup popup_type_profile">
       <div class="popup__container">
         <form class="popup__form" name="formEdit" novalidate>

@@ -2,4 +2,10 @@
   width: 282px;
   height: 282px;
   object-fit: cover;
+  transition: 0.3s;
+}
+
+.element__image:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }

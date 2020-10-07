@@ -3,4 +3,10 @@
   font-size: 12px;
   line-height: 1.25;
   color: #ff0000;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.popup__field-error:last-of-type {
+  padding-bottom: 0;
 }

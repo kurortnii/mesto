@@ -1,12 +1,12 @@
 .popup__field {
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   border: 0;
   border-bottom: 1px solid rgba(0, 0 , 0, 0.2);
 }
 
 @media screen and (min-width: 300px) and (max-width: 500px) {
   .popup__field {
-    padding-bottom: 23px;
+    padding-bottom: 15px;
   }
 }
 

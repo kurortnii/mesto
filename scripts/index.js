@@ -40,6 +40,7 @@ const profileText = document.querySelector('.profile__text');
 //объвляем переменную, необходимую для рендера карточки
 
 const elementContainer = document.querySelector('.elements');
+const cardItemTemplate = document.querySelector('#elementTemplate').content;
 
 //объявляем переменные для попапа добавления карточки
 
@@ -62,18 +63,20 @@ const popupCloseButtonAll = document.querySelectorAll('.popup__button-close');
 
 const openPopup = popup => {
   popup.classList.add('popup_opened'); 
-  popup.parentNode.addEventListener('keydown', closePopupByEscKey);
+  document.addEventListener('keydown', closePopupByEscKey);
 }
 
 //описываем функцию закрытия попапа
 
-const closePopup = () => document.querySelector('.popup_opened').classList.remove('popup_opened');
+const closePopup = () => {
+  document.querySelector('.popup_opened').classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupByEscKey);
+}
 
 //описываем функцию закрытия попапа по клавише Esc
 
 const closePopupByEscKey = evt => {
   if (evt.keyCode === 27) {
-    document.querySelector('.popup_opened').parentNode.removeEventListener('keydown', closePopupByEscKey);
     closePopup();
   }
 }
@@ -112,15 +115,15 @@ const handleAddCardFormSubmit = event => {
   
   //передали ее в контейнер
   addCardToContainer(elementContainer, elementItem);
-
+  formElementAdd.reset();
   closePopup(); 
-  formElementAdd.reset(); 
+ 
 }
 
 //отрисовываем карточку
 
 const createCard = (nameCard, urlCard) => {
-  const cardElement = document.querySelector('#elementTemplate').content.cloneNode(true);
+  const cardElement = cardItemTemplate.cloneNode(true);
   const likeButton = cardElement.querySelector('.element__button-like');
   const imageElement = cardElement.querySelector('.element__image');
   const deleteIcon = cardElement.querySelector('.element__button-delete');
@@ -167,13 +170,15 @@ popupOpenButton.addEventListener('click', function() {
   textInput.value = profileText.textContent;
 });
 
-popupAddButton.addEventListener('click', function() {
+popupAddButton.addEventListener('click', function(evt) {
+  evt.preventDefault();
   openPopup(popupAdd);
+  formElementAdd.reset();
 });
 
-popupProfile.addEventListener('click', closePopupOverlay);
-popupAdd.addEventListener('click', closePopupOverlay);
-popupWrapImage.addEventListener('click', closePopupOverlay);
+popupProfile.addEventListener('mousedown', closePopupOverlay);
+popupAdd.addEventListener('mousedown', closePopupOverlay);
+popupWrapImage.addEventListener('mousedown', closePopupOverlay);
 
 popupCloseButtonAll.forEach(button => {
   button.addEventListener('click', closePopup)
